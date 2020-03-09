@@ -1,0 +1,22 @@
+<nav class="sidenav font-effect-emboss">
+  <span *ngFor="let menuItem of menuItems">
+    <a
+      *ngIf="menuItem.routerLink"
+      class="link"
+      [routerLink]="menuItem.routerLink"
+    >
+      <mat-icon *ngIf="menuItem.matIcon">{{ menuItem.matIcon }}</mat-icon>
+      <span class="label">{{ menuItem.label }}</span>
+    </a>
+    <a
+      *ngIf="menuItem.externalLink"
+      class="link"
+      [href]="menuItem.externalLink"
+      target="_blank"
+    >
+      <mat-icon *ngIf="menuItem.matIcon">{{ menuItem.matIcon }}</mat-icon>
+      <span class="label">{{ menuItem.label }}</span>
+    </a>
+  </span>
+  <img class="logo" src="assets/CCC.png" routerLink="/portal" />
+</nav>

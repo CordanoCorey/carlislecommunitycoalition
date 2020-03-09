@@ -1,0 +1,14 @@
+<div class="box-score" [style.flex-direction]="isMobile ? 'column' : 'row'">
+  <div
+    class="team-box-score-wrapper"
+    *ngFor="let dataSource of data; let i = index"
+    [style.width.%]="isMobile ? 90 : 45"
+  >
+    <ccc-team-box-score
+      [dataSource]="dataSource"
+      [displayedColumns]="displayedColumns"
+      [teamName]="(boxScore?.teams)[i]?.teamName"
+      [teamColor]="(boxScore?.teams)[i]?.teamColor"
+    ></ccc-team-box-score>
+  </div>
+</div>

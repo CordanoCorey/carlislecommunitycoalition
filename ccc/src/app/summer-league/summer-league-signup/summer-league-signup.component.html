@@ -1,0 +1,108 @@
+<form id="summer-league-signup" [formGroup]="form">
+
+  <h3>2020 Carlisle Summer Basketball League Signup</h3>
+
+  <div class="form-fields scrollable">
+    <mat-form-field appearance="outline">
+      <mat-label>First Name</mat-label>
+      <input matInput placeholder="First Name" type="text" formControlName="firstName">
+      <mat-error>
+        <div *ngIf="form.get('firstName')?.errors?.required">
+          First name is required.
+        </div>
+        <div *ngIf="form.get('firstName')?.errors?.maxlength">
+          First name must be less than 50 characters long.
+        </div>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Last Name</mat-label>
+      <input matInput placeholder="Last Name" type="text" formControlName="lastName">
+      <mat-error>
+        <div *ngIf="form.get('lastName')?.errors?.required">
+          Last name is required.
+        </div>
+        <div *ngIf="form.get('lastName')?.errors?.maxlength">
+          Last name must be less than 50 characters long.
+        </div>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" formControlName="email">
+      <mat-error>
+        <div *ngIf="form.get('email')?.errors?.required">
+          Email address is required.
+        </div>
+        <div *ngIf="form.get('email')?.errors?.maxlength">
+          Email address must be less than 150 characters long.
+        </div>
+        <div *ngIf="form.get('email')?.errors?.email">
+          Please enter a valid email address.
+        </div>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Phone Number</mat-label>
+      <input matInput type="tel" placeholder="Phone Number" formControlName="phoneNumber">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Birth Date</mat-label>
+      <input matInput [matDatepicker]="picker" placeholder="Birth Date" formControlName="birthDate">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+      <mat-error>
+        <div *ngIf="form.get('lastName')?.errors?.required">
+          Birth date is required.
+        </div>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-radio-group formControlName="jerseySizeId">
+      <label class="radio-group-label">Jersey Size</label>
+      <mat-radio-button *ngFor="let lkp of lkpSizes$ | async" [value]="lkp.id">{{ lkp.name }}</mat-radio-button>
+    </mat-radio-group>
+
+    <div class="jersey-number">
+      <p class="label">Jersey Number Preference<span class="hint">(Optional)</span></p>
+      <mat-form-field appearance="outline">
+        <mat-label>Choice 1</mat-label>
+        <span class="prefix" matPrefix># &nbsp;</span>
+        <input matInput formControlName="jerseyNumberChoice1">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Choice 2</mat-label>
+        <span class="prefix" matPrefix># &nbsp;</span>
+        <input matInput formControlName="jerseyNumberChoice2">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Choice 3</mat-label>
+        <span class="prefix" matPrefix># &nbsp;</span>
+        <input matInput formControlName="jerseyNumberChoice3">
+      </mat-form-field>
+    </div>
+  </div>
+
+  <input type="hidden" name="age" ([ngModel])="age">
+
+  <button mat-raised-button class="btn-clear" (click)="clear()">Clear</button>
+
+  <button mat-raised-button color="primary" class="btn-save" *ngIf="form.valid" (click)="onSave()">Sign Up</button>
+
+  <div class="autocomplete scrollable" *ngIf="matches.length > 0" [@lightSpeedInOnEnter] [@lightSpeedOutOnLeave]>
+    <h4>Did you play last year?</h4>
+    <div class="player-list">
+      <div class="match-player" *ngFor="let player of matches">
+        <div class="info">
+          <p>{{ player.abbreviatedName }}</p>
+          <p>{{ player.birthDate | date: 'shortDate' }}</p>
+        </div>
+        <button mat-button (click)="match(player)">THIS IS ME</button>
+      </div>
+    </div>
+  </div>
+</form>

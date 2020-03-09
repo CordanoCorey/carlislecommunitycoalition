@@ -1,0 +1,22 @@
+<div class="league-leaders">
+  <div class="stat-cat" [style.background-color]="color">
+    <span class="stat-cat-label font-effect-3d-float" [style.color]="labelColor">
+      League
+    </span>
+    <span class="stat-cat-label font-effect-3d-float" [style.color]="labelColor">
+      Leaders
+    </span>
+    <span class="stat-cat-label font-effect-3d-float" [style.color]="labelColor">
+      {{ statCategoryName }}
+    </span>
+  </div>
+  <div class="stat-cat-stats" [style.background-color]="color">
+    <div class="players">
+      <div class="player-wrapper" *ngFor="let leader of leagueLeaders; let i = index">
+        <span class="rank" class="date-day font-effect-outline" [style.color]="leader.teamColor">{{ i + 1 }}</span>
+        <span class="player" class="font-effect-outline" [style.color]="leader.teamColor">{{ leader.playerName }}</span>
+        <span class="avg" class="font-effect-outline" [style.color]="leader.teamColor">{{ leader.total | number: '1.1-1' }}</span>
+      </div>
+    </div>
+  </div>
+</div>

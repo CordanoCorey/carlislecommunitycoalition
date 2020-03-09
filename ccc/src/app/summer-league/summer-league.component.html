@@ -1,0 +1,29 @@
+<ccc-container [hasWallpaper]="false" [navbarMenuItems]="navbarMenuItems" [sidenavMenuItems]="sidenavMenuItems"
+  backgroundImageUrl="jpg/memorial-park.jpg">
+  <a *ngIf="routeName !== 'summer-league' && routeName !== 'signup'" mat-raised-button class="back font-effect-emboss"
+    routerLink="/summer-league">
+    <mat-icon>navigate_before</mat-icon>
+    Back to Summer League Home
+  </a>
+  <div id="summer-league-content" *ngIf="(routeName$ | async) === 'summer-league'">
+    <mat-grid-list [cols]="cols" rowHeight="3:2">
+      <mat-grid-tile>
+        <a class="link" routerLink="/summer-league/10U">
+          <span class="label">10U</span>
+        </a>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <a class="link" routerLink="/summer-league/12U">
+          <span class="label">12U</span>
+        </a>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <a class="link" routerLink="/summer-league/14U">
+          <span class="label">14U</span>
+        </a>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+
+  <router-outlet></router-outlet>
+</ccc-container>

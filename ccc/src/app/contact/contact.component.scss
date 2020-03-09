@@ -1,0 +1,47 @@
+@import '~@angular/material/_theming';
+
+#background-image {
+  width: 100%;
+}
+
+form {
+  @include mat-elevation(12);
+  z-index: 2;
+  width: 50%;
+  min-width: 500px;
+  display: block;
+  background-color: #fff;
+  position: absolute;
+  top: 60px;
+  left: 40px;
+  height: 400px;
+  padding-top: 20px;
+  padding-bottom: 60px;
+
+  h1 {
+    margin: 0;
+    margin-left: 40px;
+    color: #000;
+  }
+
+  #send-email {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: #fff;
+    font-size: 20px;
+    padding: 5px 30px;
+  }
+
+  mat-form-field {
+    font-size: 18px;
+    width: 90%;
+    margin: 0 5%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  form {
+    width: 90%;
+  }
+}

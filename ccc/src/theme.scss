@@ -1,0 +1,27 @@
+@import '~@angular/material/theming';
+@import 'common';
+
+@include mat-core();
+
+$primary-palette: mat-palette($mat-green);
+$accent-palette: mat-palette($mat-pink, A200, A100, A400);
+$ccc-warn: mat-palette($mat-red);
+$ccc-theme: mat-light-theme($primary-palette, $accent-palette, $ccc-warn);
+@include angular-material-theme($ccc-theme);
+@include scrollable(#000, #8e8e8e);
+
+.dark-theme {
+  $dark-primary: mat-palette($primary-palette);
+  $dark-accent: mat-palette($accent-palette);
+
+  $dark-theme: mat-dark-theme($dark-primary, $dark-accent);
+
+  @include angular-material-theme($dark-theme);
+}
+
+.light-theme {
+  $light-primary: mat-palette($primary-palette);
+  $light-accent: mat-palette($accent-palette);
+
+  $light-theme: mat-dark-theme($light-primary, $light-accent);
+}

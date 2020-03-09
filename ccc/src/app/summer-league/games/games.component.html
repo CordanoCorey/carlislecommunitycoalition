@@ -1,0 +1,9 @@
+<div id="games" *ngIf="(routeName$ | async) === 'games'">
+  <ccc-score
+    *ngFor="let game of games$ | async"
+    [routerLink]="getLink(game)"
+    [game]="game"
+  ></ccc-score>
+</div>
+
+<router-outlet></router-outlet>

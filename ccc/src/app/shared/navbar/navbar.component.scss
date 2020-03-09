@@ -1,0 +1,49 @@
+@import '../../../common';
+
+#navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #323232;
+  background: darkgreen;
+  background: #8e8e8e;
+  background: #dadada;
+  background: transparent;
+  width: 100%;
+  padding: 0;
+  padding-top: 0px;
+  position: relative;
+  margin-top: 60px;
+  height: 70px;
+
+  .summer-league-logo {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 120px;
+    cursor: pointer;
+  }
+
+  a.link {
+    display: inline-flex;
+    margin: 0;
+    cursor: pointer;
+    padding: 14px 0;
+    position: relative;
+    text-decoration: none;
+    color: black;
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, .3);
+    text-shadow: 0px 1px 1px #4d4d4d;
+    color: #222;
+    font: 20px 'LeagueGothicRegular';
+    text-align: center;
+  }
+
+  a.link:hover {
+    color: #8e8e8e;
+    font-weight: bold;
+  }
+}

@@ -1,0 +1,17 @@
+@import '~@angular/material/_theming';
+@import '../../common';
+
+.content {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  ccc-summer-league-signup {
+    z-index: 1;
+    height: 100%;
+  }
+}

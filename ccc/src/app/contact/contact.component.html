@@ -1,0 +1,25 @@
+<ccc-container [hasWallpaper]="true" [navbarMenuItems]="navbarMenuItems" [sidenavMenuItems]="sidenavMenuItems">
+  <form action="https://formspree.io/carlislecommunitycoalition@gmail.com" method="POST" #contactForm>
+    <h1 class="font-effect-shadow-multiple">Contact Us</h1>
+
+    <mat-form-field>
+      <input matInput placeholder="Name" type="text" name="name" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Email" type="email" name="_replyto" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="tel" matInput placeholder="Phone Number" name="phoneNumber" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput placeholder="Message" name="message" rows="3" cols="50"></textarea>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" id="send-email" (click)="contactForm.submit()">
+      SEND
+    </button>
+  </form>
+</ccc-container>

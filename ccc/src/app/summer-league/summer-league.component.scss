@@ -1,0 +1,76 @@
+@import '~@angular/material/_theming';
+@import '../../common';
+
+mat-grid-list {
+  width: 100%;
+}
+
+.back {
+  @include silver-hgradient();
+  position: absolute;
+  top: 5px;
+  left: 0px;
+  font-size: 24px;
+  padding: 10px 20px;
+}
+
+// ccc-summer-league-signup {
+  //   @include mat-elevation(12);
+  //   width: 40%;
+  //   min-width: 500px;
+  //   display: block;
+  //   background-color: #fff;
+  //   position: absolute;
+  //   top: 60px;
+  //   left: 40px;
+  //   height: 400px;
+  //   padding-top: 20px;
+  // }
+
+.logo-footer {
+  width: 100%;
+}
+
+a.link {
+  @include mat-elevation(4);
+  position: absolute;
+  left: 0px;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+
+  mat-icon {
+    color: #000;
+    font-size: 48px;
+    height: 48px;
+    width: 48px;
+  }
+
+  .label {
+    clear: both;
+    color: #fff;
+    width: 100%;
+    font-size: 28px;
+    padding: 12px 0px;
+    display: block;
+  }
+}
+
+a.link:hover {
+  font-weight: bold;
+
+  mat-icon {
+    color: #8e8e8e;
+  }
+
+  .label {
+    color: #fff;
+    font-size: 36px;
+  }
+}

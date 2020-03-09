@@ -1,0 +1,17 @@
+@import '~@angular/material/_theming';
+@import '../../../common';
+
+#games {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    width: 90%;
+    margin: 0 5%;
+    margin-top: 50px;
+
+    ccc-score {
+        width: 100%;
+    }
+}

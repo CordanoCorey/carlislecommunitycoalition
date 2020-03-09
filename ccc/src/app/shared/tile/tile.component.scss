@@ -1,0 +1,8 @@
+@import '~@angular/material/_theming';
+.tile {
+    @include mat-elevation(4);
+    overflow: hidden;
+    img {
+        opacity: 0.4;
+    }
+}

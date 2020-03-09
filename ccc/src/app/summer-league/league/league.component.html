@@ -1,0 +1,9 @@
+<div id="league" *ngIf="(routeName$ | async) === 'league'">
+  <ccc-standings></ccc-standings>
+  <ccc-league-leaders [statCategoryId]="1"></ccc-league-leaders>
+  <ccc-league-leaders [statCategoryId]="2"></ccc-league-leaders>
+  <ccc-league-leaders [statCategoryId]="3"></ccc-league-leaders>
+  <ccc-league-leaders [statCategoryId]="4"></ccc-league-leaders>
+  <ccc-league-leaders [statCategoryId]="5"></ccc-league-leaders>
+</div>
+<router-outlet></router-outlet>

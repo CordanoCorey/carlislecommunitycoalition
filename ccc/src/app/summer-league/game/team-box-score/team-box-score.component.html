@@ -1,0 +1,76 @@
+<div class="team-box-score">
+  <h1 class="font-effect-emboss" [style.color]="teamColor">{{ teamName }}</h1>
+  <mat-table class="box-score" [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- <ng-container matColumnDef="team-name">
+      <mat-header-cell *matHeaderCellDef>{{ teamName }}</mat-header-cell>
+    </ng-container> -->
+
+    <!-- Jersey Number Column -->
+    <ng-container matColumnDef="number">
+      <mat-header-cell *matHeaderCellDef [style.width.px]="50">#</mat-header-cell>
+      <mat-cell *matCellDef="let element" [style.width.px]="50">
+        {{ element.number }}
+        <!-- {{ element.playerName }} -->
+      </mat-cell>
+      <mat-footer-cell *matFooterCellDef>
+        TOT
+      </mat-footer-cell>
+    </ng-container>
+
+    <!-- PTS Column -->
+    <ng-container matColumnDef="pts">
+      <mat-header-cell *matHeaderCellDef> PTS </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.pts }} </mat-cell>
+      <mat-footer-cell *matFooterCellDef>
+        {{ getTotal('pts') }}
+      </mat-footer-cell>
+    </ng-container>
+
+    <!-- REB Column -->
+    <ng-container matColumnDef="reb">
+      <mat-header-cell *matHeaderCellDef> REB </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.reb }} </mat-cell>
+      <mat-footer-cell *matFooterCellDef>
+        {{ getTotal('reb') }}
+      </mat-footer-cell>
+    </ng-container>
+
+    <!-- AST Column -->
+    <ng-container matColumnDef="ast">
+      <mat-header-cell *matHeaderCellDef> AST </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.ast }} </mat-cell>
+      <mat-footer-cell *matFooterCellDef>
+        {{ getTotal('ast') }}
+      </mat-footer-cell>
+    </ng-container>
+
+    <!-- STL Column -->
+    <ng-container matColumnDef="stl">
+      <mat-header-cell *matHeaderCellDef> STL </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.stl }} </mat-cell>
+      <mat-footer-cell *matFooterCellDef>
+        {{ getTotal('stl') }}
+      </mat-footer-cell>
+    </ng-container>
+
+    <!-- BLK Column -->
+    <ng-container matColumnDef="blk">
+      <mat-header-cell *matHeaderCellDef> BLK </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{ element.blk }}
+      </mat-cell>
+      <mat-footer-cell *matFooterCellDef>
+        {{ getTotal('blk') }}
+      </mat-footer-cell>
+    </ng-container>
+
+    <!-- <tr
+      mat-header-row
+      *matHeaderRowDef="'team-name'"
+      class="example-second-header-row"
+    ></tr> -->
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    <mat-footer-row *matFooterRowDef="displayedColumns" class="totals"></mat-footer-row>
+  </mat-table>
+</div>

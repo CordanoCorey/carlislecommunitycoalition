@@ -1,0 +1,20 @@
+<ccc-header [isMobile]="isMobile"></ccc-header>
+<ccc-navbar [isMobile]="isMobile" [menuItems]="navbarMenuItems" [width]="windowWidth"></ccc-navbar>
+<ccc-sidenav *ngIf="!isMobile" [style.height.px]="sidenavHeight" [menuItems]="sidenavMenuItems"></ccc-sidenav>
+<!-- <div
+  id="content"
+  class="scrollable"
+  [style.min-height.px]="windowHeight"
+  [style.width.px]="windowWidth - offsetLeft"
+  [style.left.px]="offsetLeft"
+  [style.background-image]="backgroundImageUrl ? 'url(/assets/' + backgroundImageUrl + ')' : 'none'"
+> -->
+<div id="content" class="scrollable" [style.height.px]="windowHeight - offsetTop - 64"
+  [style.width.px]="windowWidth - offsetLeft" [style.left.px]="offsetLeft"
+  [style.background-image]="backgroundImageUrl ? 'url(/assets/' + backgroundImageUrl + ')' : 'none'"
+  class="scrollable-window">
+  <ng-content></ng-content>
+  <ccc-wallpaper *ngIf="hasWallpaper" [images]="images" [windowHeight]="windowHeight - offsetTop"
+    [windowWidth]="windowWidth">
+  </ccc-wallpaper>
+</div>

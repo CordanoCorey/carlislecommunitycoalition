@@ -1,0 +1,54 @@
+<div class="standings-wrapper">
+  <mat-table class="standings" [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <mat-header-cell *matHeaderCellDef [style.width.px]="50"></mat-header-cell>
+      <mat-cell *matCellDef="let element" [style.width.px]="50">
+        <span [style.color]="element.teamColor" class="font-effect-3d-float">{{ element.position }}</span>
+      </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Team </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <span [style.color]="element.teamColor" class="font-effect-outline">{{ element.name }}</span>
+      </mat-cell>
+    </ng-container>
+
+    <!-- Point Diff Column -->
+    <ng-container matColumnDef="pointDiff">
+      <mat-header-cell *matHeaderCellDef> Point Diff. </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <span [style.color]="element.teamColor" class="font-effect-outline">{{ element.pointDiff }}</span>
+      </mat-cell>
+    </ng-container>
+
+    <!-- W Column -->
+    <ng-container matColumnDef="wins">
+      <mat-header-cell *matHeaderCellDef> W </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <span [style.color]="element.teamColor" class="font-effect-outline">{{ element.wins }}</span>
+      </mat-cell>
+    </ng-container>
+
+    <!-- L Column -->
+    <ng-container matColumnDef="losses">
+      <mat-header-cell *matHeaderCellDef> L </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <span [style.color]="element.teamColor" class="font-effect-outline">{{ element.losses }}</span>
+      </mat-cell>
+    </ng-container>
+
+    <!-- Pct Column -->
+    <ng-container matColumnDef="winPct">
+      <mat-header-cell *matHeaderCellDef> Pct </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <span [style.color]="element.teamColor" class="font-effect-outline">{{ element.winPct | number: '1.3-3' }}</span>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+</div>

@@ -1,0 +1,148 @@
+@import '~@angular/material/_theming';
+@import 'theme';
+
+body {
+  margin: 0px;
+  overflow: hidden;
+  //background-image: url(assets/jpg/memorial-park.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #dadada;
+}
+
+mat-card.content {
+  @include mat-elevation(12);
+  position: absolute;
+  top: 280px;
+  left: 4%;
+  min-height: 200px;
+  width: 80%;
+  background: #fff;
+}
+
+// mat-form-field {
+//   position: relative;
+//   width: 80%;
+//   padding-top: 20px;
+//   margin-left: 8%;
+//   margin-bottom: 20px;
+// }
+
+// mat-form-field.datepicker {
+//   .mat-form-field-underline {
+//     top: 32px;
+//   }
+
+//   .mat-form-field-label-wrapper {
+//     bottom: -24px;
+//   }
+// }
+
+// mat-radio-group {
+//   display: block;
+//   position: relative;
+//   width: 92%;
+//   padding-top: 20px;
+//   margin-left: 8%;
+//   margin-bottom: 20px;
+
+//   .mat-radio-button {
+//     width: 56px;
+//     font-size: 12px;
+//   }
+
+//   .mat-radio-outer-circle,
+//   .mat-radio-inner-circle {
+//     left: 21px;
+//     top: 1px;
+//   }
+
+//   .radio-group-label {
+//     font-weight: bold;
+//   }
+// }
+
+#navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: #dadada;
+  padding: 0;
+  padding-top: 0px;
+  position: absolute;
+  top: 0px;
+  height: 70px;
+
+  a.link {
+    width: auto;
+    margin: 0;
+    cursor: pointer;
+    padding: 14px 28px;
+    position: relative;
+    text-decoration: none;
+    color: black;
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, .3);
+    text-shadow: 0px 1px 1px #4d4d4d;
+    color: #222;
+    font: 20px 'LeagueGothicRegular';
+  }
+
+  a.link:hover {
+    color: #8e8e8e;
+    font-weight: bold;
+  }
+}
+
+.mat-form-field-prefix {
+  top: 0 !important;
+}
+
+#summer-league-signup {
+  .mat-radio-outer-circle {
+    border-color: $primary-color !important;
+  }
+
+  .jersey-number {
+
+    .mat-form-field-label {
+      color: $primary-color;
+    }
+  }
+}
+
+.jersey-number {
+
+  mat-form-field {
+    .mat-form-field-outline-start {
+      border-color: $primary-color;
+    }
+
+    .mat-form-field-outline-gap {
+      border-top-color: $primary-color;
+      border-bottom-color: $primary-color;
+    }
+
+    .mat-form-field-outline-end {
+      border-top-color: $primary-color;
+      border-right-color: $primary-color;
+      border-bottom-color: $primary-color;
+    }
+  }
+
+  mat-form-field.mat-focused {
+
+    .mat-form-field-outline-gap {
+      border-top-color: transparent;
+    }
+  }
+}
+
+ccc-summer-league-signup {
+  display: block;
+  padding-bottom: 100px;
+}
