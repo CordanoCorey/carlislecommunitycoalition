@@ -1,6 +1,4 @@
-<div id="navbar" [style.padding-left.px]="paddingLeft" [style.width.px]="innerWidth">
-  <span *ngFor="let menuItem of menuItems">
-    <a *ngIf="menuItem.routerLink" class="link" [routerLink]="menuItem.routerLink" [style.width.px]="menuItemWidth">{{ menuItem.label }}</a>
-    <a *ngIf="menuItem.externalLink" class="link" [href]="menuItem.externalLink" target="_blank" [style.width.px]="menuItemWidth">{{ menuItem.label }}</a>
-  </span>
+<div id="navbar" [style.width.px]="innerWidth" [style.left.px]="paddingLeft">
+  <a *ngFor="let menuItem of menuItems" class="link" [routerLink]="menuItem.routerLink"
+    [style.width.px]="menuItemWidth">{{ menuItem.label }}</a>
 </div>

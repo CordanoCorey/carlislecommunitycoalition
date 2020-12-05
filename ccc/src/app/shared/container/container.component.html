@@ -11,10 +11,10 @@
 > -->
 <div id="content" class="scrollable" [style.height.px]="windowHeight - offsetTop - 64"
   [style.width.px]="windowWidth - offsetLeft" [style.left.px]="offsetLeft"
-  [style.background-image]="backgroundImageUrl ? 'url(/assets/' + backgroundImageUrl + ')' : 'none'"
+  [style.background-image]="backgroundImageUrl && !(hasWallpaper && !isMobile) ? 'url(/assets/' + backgroundImageUrl + ')' : 'none'"
   class="scrollable-window">
   <ng-content></ng-content>
-  <ccc-wallpaper *ngIf="hasWallpaper" [images]="images" [windowHeight]="windowHeight - offsetTop"
+  <ccc-wallpaper *ngIf="hasWallpaper && !isMobile" [images]="images" [windowHeight]="windowHeight - offsetTop"
     [windowWidth]="windowWidth">
   </ccc-wallpaper>
 </div>

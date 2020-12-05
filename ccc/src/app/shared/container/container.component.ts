@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, Input } from '@angular/core';
+import { Component, OnInit, HostListener, Input, ElementRef } from '@angular/core';
 import { SmartComponent } from '@caiu/library';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -116,10 +116,19 @@ export class ContainerComponent extends SmartComponent implements OnInit {
     build(Image, { src: 'assets/v/9.jpg', height: 450, width: 300, cols: 1 }),
     build(Image, { src: 'assets/v/11.jpg', height: 960, width: 644, cols: 1 })
   ];
+  _windowHeight = 0;
+  _windowWidth = 0;
 
-  constructor(public store: Store<any>) {
+  constructor(public store: Store<any>, private hostElement: ElementRef) {
     super(store);
     this.isMobile$ = isMobileSelector(store);
+    setInterval(() => {
+      const styles = getComputedStyle(this.hostElement.nativeElement);
+      const el = this.hostElement.nativeElement;
+      console.log(window.innerWidth);
+      this.windowWidth = window.innerWidth;
+      this.windowHeight = window.innerHeight;
+    }, 5000);
   }
 
   get offsetLeft(): number {
@@ -139,7 +148,10 @@ export class ContainerComponent extends SmartComponent implements OnInit {
   }
 
   set windowHeight(value: number) {
-    localStorage.setItem('WINDOW_HEIGHT', value.toString());
+    if (value !== this._windowHeight) {
+      this._windowHeight = value;
+      localStorage.setItem('WINDOW_HEIGHT', value.toString());
+    }
   }
 
   get windowWidth(): number {
@@ -147,7 +159,10 @@ export class ContainerComponent extends SmartComponent implements OnInit {
   }
 
   set windowWidth(value: number) {
-    localStorage.setItem('WINDOW_WIDTH', value.toString());
+    if (value !== this._windowWidth) {
+      this._windowWidth = value;
+      localStorage.setItem('WINDOW_WIDTH', value.toString());
+    }
   }
 
   ngOnInit() {
@@ -176,7 +191,7 @@ export class ContainerComponent extends SmartComponent implements OnInit {
     this.windowWidth =
       e && e.currentTarget && e.currentTarget.innerWidth
         ? e.currentTarget.innerWidth
-        : 0;
+        : 0; ``;
     // console.log('\n\nwindow:resize', this.windowWidth, this.windowHeight);
   }
 }

@@ -1,1 +1,7 @@
-<p>summer-league-signup-confirmation works!</p>
+<div class="wrapper">
+  <p>Congratulations {{ playerName$ | async }}! You have successfully signed up for the 2020 Carlisle Summer League.
+    Important dates and
+    announcements will be sent to your email. Also, please check back for updates to this site leading up to and
+    throughout the season!</p>
+  <button mat-raised-button [routerLink]="'/summer-league/players/' + playerId + '/signup'">Edit my Signup Info</button>
+</div>

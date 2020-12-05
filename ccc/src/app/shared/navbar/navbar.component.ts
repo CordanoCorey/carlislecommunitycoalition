@@ -30,10 +30,7 @@ export class NavbarComponent implements OnInit {
   }
 
   get menuItemWidth(): number {
-    return Math.max(
-      Math.min(150, this.innerWidth / toArray(this.menuItems).length),
-      100
-    );
+    return this.innerWidth / toArray(this.menuItems).length;
   }
 
   ngOnInit() { }

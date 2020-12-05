@@ -32,7 +32,6 @@ export function playersReducer(
 ): Players {
   switch (action.type) {
     case PlayersActions.GET:
-      console.dir(action.payload);
       return state.update(action.payload);
 
     default:

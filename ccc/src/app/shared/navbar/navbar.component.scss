@@ -40,10 +40,37 @@
     color: #222;
     font: 20px 'LeagueGothicRegular';
     text-align: center;
+    align-items: center;
+    justify-content: center;
   }
 
   a.link:hover {
     color: #8e8e8e;
     font-weight: bold;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  #navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    left: 0 !important;
+    width: 100% !important;
+
+    a.link {
+      font-size: 13px !important;
+      padding: 0 10px;
+    }
+
+    a.link:nth-child(1),
+    a.link:nth-child(2) {
+      max-width: 20% !important;
+    }
+
+    a.link:nth-child(3),
+    a.link:nth-child(4) {
+      max-width: 28% !important;
+    }
   }
 }

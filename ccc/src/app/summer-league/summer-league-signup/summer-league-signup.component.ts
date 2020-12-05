@@ -12,7 +12,7 @@ import { filter, switchMap, map, distinctUntilChanged } from 'rxjs/operators';
 import { Player, PlayerLeagueSeason } from 'src/app/shared/models';
 import { calculateAge } from '../../shared/utils';
 import { PlayersActions, PlayerActions } from 'src/app/shared/actions';
-import { playerSelector } from 'src/app/shared/selectors';
+import { playerSelector, isMobileSelector } from 'src/app/shared/selectors';
 
 @Component({
   selector: 'ccc-summer-league-signup',
@@ -28,6 +28,8 @@ export class SummerLeagueSignupComponent extends SmartComponent implements OnIni
   @Control(Player) form: FormGroup;
   age = 0;
   lkpSizes$: Observable<LookupValue[]>;
+  isMobile = false;
+  isMobile$: Observable<boolean>;
   _matches: Player[] = [];
   matches$: Observable<Player[]>;
   matchesSubject = new Subject<Player[]>();
@@ -64,6 +66,7 @@ export class SummerLeagueSignupComponent extends SmartComponent implements OnIni
       })
     ));
     this.player$ = playerSelector(store);
+    this.isMobile$ = isMobileSelector(store);
   }
 
   set matches(value: Player[]) {
@@ -80,7 +83,9 @@ export class SummerLeagueSignupComponent extends SmartComponent implements OnIni
 
   set player(value: Player) {
     this._player = value;
-    this.setValue(value);
+    this.setValue(build(Player, value, {
+
+    }));
   }
 
   get player(): Player {
@@ -109,7 +114,8 @@ export class SummerLeagueSignupComponent extends SmartComponent implements OnIni
   }
 
   ngOnInit() {
-    this.sync(['matches', 'player']);
+    this.sync(['isMobile', 'matches', 'player']);
+    this.isMobile$.subscribe(x => { console.log(x); });
   }
 
   onSave() {
@@ -141,7 +147,7 @@ export class SummerLeagueSignupComponent extends SmartComponent implements OnIni
     if (e.id) {
       this.dispatch(RouterActions.navigate(`/summer-league/players/${e.id}/signup`));
     }
-    //this.player = e;
+    // this.player = e;
     // setTimeout(() => {
     //   this.matchesSubject.next([]);
     // }, 0);

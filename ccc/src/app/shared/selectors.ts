@@ -14,7 +14,7 @@ import {
 } from '@caiu/library';
 import { Store } from '@ngrx/store';
 import { Observable, combineLatest } from 'rxjs';
-import { map, withLatestFrom } from 'rxjs/operators';
+import { map, withLatestFrom, distinctUntilChanged } from 'rxjs/operators';
 
 import { StatCategory, Game, GameTeam, TeamStat, Team, Location, League, LeagueTeam, BoxScore, Stat, GamePlayer, Player } from './models';
 import { average } from './utils';
@@ -75,6 +75,13 @@ export function leagueTeamsSelector(store: Store<any>): Observable<LeagueTeam[]>
 export function playerSelector(store: Store<any>): Observable<Player> {
   return routeParamIdSelector(store, 'playerId').pipe(
     withLatestFrom(store.select('players'), (id, players) => players.get(id))
+  );
+}
+
+export function playerNameSelector(store: Store<any>): Observable<string> {
+  return playerSelector(store).pipe(
+    map(x => x.fullName),
+    distinctUntilChanged()
   );
 }
 

@@ -26,4 +26,8 @@ ccc-sidenav {
   ccc-sidenav {
     display: none;
   }
+
+  #content {
+    min-width: unset;
+  }
 }
